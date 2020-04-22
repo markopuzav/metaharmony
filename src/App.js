@@ -16,14 +16,26 @@ class App extends Component {
         <Header />
 
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={Home} />
-          <Route path="/metaharmony" component={Home} />
-          <Route path="/learning" component={LearningApp} />
-          <Route path="/team" component={Team} />
-          <Route path="/supporters" component={Supporters} />
-          <Route path="/contact" component={ContactForm} />
-          <Route path="/videos" component={Videos} />
+          <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
+          <Route path={process.env.PUBLIC_URL + "/about"} component={Home} />
+          <Route
+            path={process.env.PUBLIC_URL + "/metaharmony"}
+            component={Home}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/learning"}
+            component={LearningApp}
+          />
+          <Route path={process.env.PUBLIC_URL + "/team"} component={Team} />
+          <Route
+            path={process.env.PUBLIC_URL + "/supporters"}
+            component={Supporters}
+          />
+          <Route
+            path={process.env.PUBLIC_URL + "/contact"}
+            component={ContactForm}
+          />
+          <Route path={process.env.PUBLIC_URL + "/videos"} component={Videos} />
         </Switch>
 
         <hr style={{ marginTop: 100 }} />

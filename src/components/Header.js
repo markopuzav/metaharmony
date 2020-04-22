@@ -10,11 +10,11 @@ function Header() {
   const history = useHistory();
 
   const navigateToTeam = useCallback(() => {
-    history.push("/team");
+    history.push(process.env.PUBLIC_URL + "/team");
   }, [history]);
 
   const navigateToSupporters = useCallback(() => {
-    history.push("/supporters");
+    history.push(process.env.PUBLIC_URL + "/supporters");
   }, [history]);
 
   return (
@@ -36,19 +36,31 @@ function Header() {
             paddingRight: 12,
           }}
         />
-        <Navbar.Brand className="nav-title" href="/">
+        <Navbar.Brand className="nav-title" href={process.env.PUBLIC_URL + "/"}>
           Meta-Harmony®
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <NavLink to="/" exact className="nav-link">
+            <NavLink
+              to={process.env.PUBLIC_URL + "/"}
+              exact
+              className="nav-link"
+            >
               ABOUT
             </NavLink>
-            <NavLink to="/learning" exact className="nav-link">
+            <NavLink
+              to={process.env.PUBLIC_URL + "/learning"}
+              exact
+              className="nav-link"
+            >
               LEARNING
             </NavLink>
-            <NavLink to="/videos" exact className="nav-link">
+            <NavLink
+              to={process.env.PUBLIC_URL + "/videos"}
+              exact
+              className="nav-link"
+            >
               VIDEOS
             </NavLink>
             <NavDropdown alignRight title="PEOPLE" id="collasible-nav-dropdown">
@@ -57,7 +69,11 @@ function Header() {
                 SUPPORTERS
               </NavDropdown.Item>
             </NavDropdown>
-            <NavLink to="/contact" exact className="nav-link">
+            <NavLink
+              to={process.env.PUBLIC_URL + "/contact"}
+              exact
+              className="nav-link"
+            >
               CONTACT
             </NavLink>
           </Nav>
