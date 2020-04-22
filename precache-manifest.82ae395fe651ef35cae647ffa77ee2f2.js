@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "39752abc02e092e72a2fa3c21689ae95",
+    "revision": "8dc4d5241122f6eb90d390afe619bc0c",
     "url": "/metaharmony/index.html"
   },
   {
