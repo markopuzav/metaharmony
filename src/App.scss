@@ -1,0 +1,79 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f2f3f8;
+  color: #32357c;
+  font-family: "proxima-nova", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 90%;
+}
+
+#root {
+  height: 100%;
+}
+
+h1 {
+  font-weight: normal;
+  color: #32357c;
+}
+
+a {
+  color: #5867dd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2739c1;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  align-content: center;
+}
+
+.App {
+  min-height: 100%;
+  display: flex;
+
+  @media screen and (min-width: 768px) {
+    min-height: auto;
+    display: block;
+  }
+}
+
+.app-title {
+  font-size: 28px;
+  margin-right: 48px;
+  color: #5d2ae0;
+}
+
+.error-message {
+  color: red;
+}
+
+.App-auth {
+  background-image: url("/images/signup-background.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 100%;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    height: 100vh;
+  }
+}

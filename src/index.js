@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
+import App from "./App";
+import "./index.scss";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+/**
+ * Default behaviour of react-router is to not scroll to the top.
+ * https://reacttraining.com/react-router/web/guides/scroll-restoration
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function ConnectedApp() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <App />
+    </Router>
+  );
+}
+
+ReactDOM.render(<ConnectedApp />, document.getElementById("root"));

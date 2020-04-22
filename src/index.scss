@@ -1,0 +1,16 @@
+// https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme
+
+$theme-colors: (
+  "primary": #4463ff,
+  "secondary": #fc2367,
+  "success": #34cb58,
+  "warning": #ffbc44,
+  "danger": #fc5640,
+);
+
+$box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.1);
+
+$navbar-padding-y: 1.5rem;
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "custom.scss";
