@@ -88,7 +88,6 @@ function Header() {
               url="https://www.instagram.com/tomglazebrook/"
               style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
             />
-            {"  "}
             <SocialIcon
               url="https://www.youtube.com/channel/UCKoLZ-akJToEIt2M98pCqAA"
               style={{ height: 30, width: 30, marginBottom: 4 }}

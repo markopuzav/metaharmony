@@ -23,22 +23,22 @@ class Home extends Component {
       <ScreenContainer>
 
       <Fade in={this.state.open}>
-        <Row>
+        <Row style={{ marginBottom: "6%" }}>
           <div
             className="col align-self-center col-md-8 offset-sm-2"
           >
             <h2 className="text-center" style={{marginRight: 100}}>
-              "Clarity & Intuition
+              Clarity & Intuition
             </h2>
             <h2 className="text-center" style={{marginLeft: 100}}>
-              with Harmony"
+              with Harmony
             </h2>
           </div>
         </Row>
       </Fade>
 
       <Fade in={this.state.open}>
-        <Row style={{ marginBottom: "-16%" }}>
+        <Row style={{ marginBottom: "-8%" }}>
           <div className="col align-self-center">
             <Row style={{ paddingBottom: 160, marginLeft: 20, marginTop: 30 }}>
               <h2>
@@ -46,7 +46,7 @@ class Home extends Component {
               </h2>
               <p>
                 Meta-Harmony is a world where notes and chords have colour.
-                Notes live in primary colours which mix together to make secondary colours, this is where chords live.
+                Notes live in primary colours, which mix together to make secondary colours - this is where chords live.
               </p>
             </Row>
           </div>
@@ -62,7 +62,7 @@ class Home extends Component {
       </Fade>
 
       <Fade in={this.state.open}>
-        <Row>
+        <Row style={{ marginBottom: "6%" }}>
           <div className="col">
             <Image
               src={process.env.PUBLIC_URL + "/images/sound.png"}
@@ -86,7 +86,7 @@ class Home extends Component {
 
 
       <Fade in={this.state.open}>
-        <Row>
+        <Row style={{ marginBottom: "6%" }}>
           <div className="col align-self-center">
             <Row style={{ paddingBottom: 160, marginLeft: 20, marginTop: 40}}>
               <h2>
