@@ -1,3 +1,4 @@
+/* OUTDATED */
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import Fade from "react-bootstrap/Fade";

@@ -7,9 +7,9 @@ class Team extends Component {
     return (
       <ScreenContainer>
         <div className="row justify-content-start">
-          <div className="col-lg-1 align-self-center">
+          <div className="col-lg-2 align-self-center">
             <Image
-              src={process.env.PUBLIC_URL + "/people/tom.jpg"}
+              src={process.env.PUBLIC_URL + "/people/tom.png"}
               alt="Tom picture"
               style={{ marginBottom: 16, marginLeft: -8 }}
               fluid
@@ -35,7 +35,7 @@ class Team extends Component {
         </div>
         <hr style={{ paddingBottom: 16 }} />
         <div className="row justify-content-start">
-          <div className="col-lg-1 align-self-center">
+          <div className="col-lg-2 align-self-center">
             <Image
               src={process.env.PUBLIC_URL + "/people/charlie.jpg"}
               alt="Charlie picture"

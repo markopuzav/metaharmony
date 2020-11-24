@@ -4,6 +4,8 @@ import Carousel from "react-bootstrap/Carousel";
 import { Row } from "reactstrap";
 import ScreenContainer from "../components/ScreenContainer";
 import Fade from "react-bootstrap/Fade";
+import Video from "../components/Video";
+import { INTRODUCING_MH } from "../constants";
 
 class Home extends Component {
   state = {
@@ -19,47 +21,104 @@ class Home extends Component {
   render() {
     return (
       <ScreenContainer>
-        <Fade in={this.state.open}>
-          <Row style={{ minHeight: "100%" }}>
-            <div className="col align-self-center offset-md-1">
-              <Row style={{ paddingBottom: 160, marginLeft: 20 }}>
-                <h2>
-                  A new approach <br /> to musical harmony
-                </h2>
-              </Row>
-            </div>
-            <div className="col">
-              <Image
-                src={process.env.PUBLIC_URL + "/images/new-approach-image.jpg"}
-                alt="Meta-Harmony Example"
-                style={{ paddingRight: 16 }}
-                fluid
-              ></Image>
-            </div>
-          </Row>
-        </Fade>
 
-        <Fade in={this.state.open}>
-          <Row>
-            <div
-              className="col align-self-center col-md-8 offset-md-2"
-              style={{ marginTop: 20 }}
-            >
-              <p className="text-center">
-                Meta-Harmony works by labelling notes and chords with{" "}
-                <strong>colour</strong> <i>(see above)</i> then building{" "}
-                <strong>shapes</strong> with these colours <i>(see below)</i>.{" "}
+      <Fade in={this.state.open}>
+        <Row>
+          <div
+            className="col align-self-center col-md-8 offset-sm-2"
+          >
+            <h2 className="text-center" style={{marginRight: 100}}>
+              "Clarity & Intuition
+            </h2>
+            <h2 className="text-center" style={{marginLeft: 100}}>
+              with Harmony"
+            </h2>
+          </div>
+        </Row>
+      </Fade>
+
+      <Fade in={this.state.open}>
+        <Row style={{ marginBottom: "-16%" }}>
+          <div className="col align-self-center">
+            <Row style={{ paddingBottom: 160, marginLeft: 20, marginTop: 30 }}>
+              <h2>
+                Colour
+              </h2>
+              <p>
+                Meta-Harmony is a world where notes and chords have colour.
+                Notes live in primary colours which mix together to make secondary colours, this is where chords live.
               </p>
+            </Row>
+          </div>
+          <div className="col">
+            <Image
+              src={process.env.PUBLIC_URL + "/images/colour.png"}
+              alt="Colour example"
+              style={{ paddingRight: 16, maxHeight: "80%"}}
+              fluid
+            ></Image>
+          </div>
+        </Row>
+      </Fade>
 
-              <p className="text-center">
-                The mixing and moving of these colours and shapes allows for{" "}
-                <strong>clarity</strong> and <strong>creativity</strong> with
-                harmony.
+      <Fade in={this.state.open}>
+        <Row>
+          <div className="col">
+            <Image
+              src={process.env.PUBLIC_URL + "/images/sound.png"}
+              alt="Sound example"
+              style={{ marginLeft: 10 }}
+              fluid
+            ></Image>
+          </div>
+          <div className="col align-self-center">
+            <Row style={{  marginLeft: 20}}>
+              <h2>
+                Sound
+              </h2>
+              <p>
+                These six colours reveal six sounds, comprehensively showing us what notes and chords can do.
               </p>
-            </div>
-          </Row>
-        </Fade>
+            </Row>
+          </div>
+        </Row>
+      </Fade>
 
+
+      <Fade in={this.state.open}>
+        <Row>
+          <div className="col align-self-center">
+            <Row style={{ paddingBottom: 160, marginLeft: 20, marginTop: 40}}>
+              <h2>
+                Shape
+              </h2>
+              <p>
+                To see all this in full resolution, we build shapes.
+                The shapes of Meta-Harmony show us exactly how notes, chords and keys relate to each other.
+              </p>
+            </Row>
+          </div>
+          <div className="col">
+            <Image
+              src={process.env.PUBLIC_URL + "/images/shape.jpg"}
+              alt="Shape example"
+              style={{ paddingRight: 16, maxHeight:"80%"}}
+              fluid
+            ></Image>
+          </div>
+        </Row>
+      </Fade>
+
+      <Fade in={this.state.open}>
+        <Row>
+          <div className="col align-self-center col-md-8 offset-md-2">
+            <Video youtubeId={INTRODUCING_MH} />
+          </div>
+        </Row>
+      </Fade>
+
+        {/*
+          CAROUSEL DISABLED FOR NOW
         <Fade in={this.state.open}>
           <Row>
             <div
@@ -95,6 +154,7 @@ class Home extends Component {
             </div>
           </Row>
         </Fade>
+        */}
       </ScreenContainer>
     );
   }

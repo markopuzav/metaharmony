@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 import ScreenContainer from "../components/ScreenContainer";
+import Image from "react-bootstrap/Image";
+
 
 class Supporters extends Component {
   render() {
     return (
       <ScreenContainer>
         <div className="row justify-content-start">
+          <div className="col-lg-2 align-self-center">
+            <Image
+              src={process.env.PUBLIC_URL + "/people/roz.jpg"}
+              alt="Tom picture"
+              style={{ marginBottom: 16, marginLeft: -8 }}
+              fluid
+            ></Image>
+          </div>
           <div className="col align-self-center">
             <h2>Roz Harding</h2>
             <p style={{ paddingLeft: 16 }}>

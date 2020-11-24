@@ -49,6 +49,8 @@ function Header() {
             >
               ABOUT
             </NavLink>
+            {/*
+              HIDDEN FOR THE TIME BEING
             <NavLink
               to={process.env.PUBLIC_URL + "/learning"}
               exact
@@ -56,6 +58,7 @@ function Header() {
             >
               LEARNING
             </NavLink>
+            */}
             <NavLink
               to={process.env.PUBLIC_URL + "/videos"}
               exact
@@ -69,23 +72,25 @@ function Header() {
                 SUPPORTERS
               </NavDropdown.Item>
             </NavDropdown>
-            <NavLink
+            {/*
+              HIDDEN UNTIL FUNCTIONAL
+              <NavLink
               to={process.env.PUBLIC_URL + "/contact"}
               exact
               className="nav-link"
             >
               CONTACT
-            </NavLink>
+            </NavLink>*/}
           </Nav>
 
           <Nav className="ml-auto">
             <SocialIcon
-              url="https://www.facebook.com/metaharmony1/"
+              url="https://www.instagram.com/tomglazebrook/"
               style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
             />
             {"  "}
             <SocialIcon
-              url="https://www.youtube.com/channel/UCKOcPW4eSODNT4amD23agqQ"
+              url="https://www.youtube.com/channel/UCKoLZ-akJToEIt2M98pCqAA"
               style={{ height: 30, width: 30, marginBottom: 4 }}
             />
           </Nav>
