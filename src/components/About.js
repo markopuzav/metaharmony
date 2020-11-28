@@ -20,7 +20,7 @@ class Home extends Component {
     return (
       <ScreenContainer>
 
-      <Row style={{marginLeft: "10%", marginRight: "10%"}}>
+      <Row style={{marginLeft: "10%", marginRight: "10%", marginBottom: 30}}>
         <h3> What is Meta-Harmony? </h3>
         <div>
           <p>
@@ -29,12 +29,12 @@ class Home extends Component {
           </p>
         </div>
       </Row>
-      <Row style={{marginLeft: "10%", marginRight: "10%"}}>
+      <Row style={{marginLeft: "10%", marginRight: "10%", marginBottom: 30}}>
         <h3> Who is it for? </h3>
         <div>
           <p>
             If you want to use harmony with intuition and clarity,
-            Meta-Harmony is for you. Maybe you’re a singer-songwriter looking for that chord,
+            Meta-Harmony is for you. Maybe you’re a singer-songwriter looking for <i>that chord</i>,
             perhaps you’re a composer looking to enrich your harmonic pallet,
             or maybe you’re a producer wanting more autonomy with your sound.
           </p>
@@ -46,9 +46,23 @@ class Home extends Component {
       <Row style={{marginLeft: "10%", marginRight: "10%"}}>
         <h3>How do I begin?</h3>
         <div>
-          <p>
-            To enjoy the riches that Meta-Harmony has to offer, join the discord community.
-          </p>
+          <Row style={{paddingTop: 20, paddingBottom: 20}}>
+            <div className="col  align-self-center">
+              <p>
+                To enjoy the riches that Meta-Harmony has to offer, join the discord community.
+              </p>
+            </div>
+            <div className="col" style={{marginLeft: 20}}>
+              <iframe
+                src="https://discord.com/widget?id=719936662263824465&theme=dark"
+                width="350"
+                height="300"
+                allowtransparency="true"
+                frameborder="0"
+                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+              </iframe>
+            </div>
+          </Row>
           <p>
             This is a place for all things Meta-Harmony - a place to learn,
             ask questions and share ideas. Not only will you find videos and diagrams explaining the method,
@@ -60,6 +74,7 @@ class Home extends Component {
         </div>
       </Row>
 
+      {/*
       <Fade in={this.state.open}>
         <Row>
           <div
@@ -95,6 +110,7 @@ class Home extends Component {
           </div>
         </Row>
       </Fade>
+      */}
 
       </ScreenContainer>
     );

@@ -23,7 +23,7 @@ class Home extends Component {
       <ScreenContainer>
 
       <Fade in={this.state.open}>
-        <Row style={{ marginBottom: "6%" }}>
+        <Row>
           <div
             className="col align-self-center col-md-8 offset-sm-2"
           >
@@ -38,7 +38,7 @@ class Home extends Component {
       </Fade>
 
       <Fade in={this.state.open}>
-        <Row style={{ marginBottom: "-8%" }}>
+        <Row>
           <div className="col align-self-center">
             <Row style={{ paddingBottom: 160, marginLeft: 20, marginTop: 30 }}>
               <h2>
@@ -62,14 +62,24 @@ class Home extends Component {
       </Fade>
 
       <Fade in={this.state.open}>
-        <Row style={{ marginBottom: "6%" }}>
+        <Row style={{marginTop: "-12%"}}>
           <div className="col">
-            <Image
-              src={process.env.PUBLIC_URL + "/images/sound.png"}
-              alt="Sound example"
-              style={{ marginLeft: 10 }}
-              fluid
-            ></Image>
+          <Carousel interval={3000} fade={false}>
+            <Carousel.Item>
+              <img
+                className="d-block w-100 carousel-image"
+                src={process.env.PUBLIC_URL + "/carousel/sounds-wheel.gif"}
+                alt="Arcade"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100 carousel-image"
+                src={process.env.PUBLIC_URL + "/carousel/sound-explanation.png"}
+                alt="Sound diagram"
+              />
+            </Carousel.Item>
+          </Carousel>
           </div>
           <div className="col align-self-center">
             <Row style={{  marginLeft: 20}}>
@@ -99,12 +109,29 @@ class Home extends Component {
             </Row>
           </div>
           <div className="col">
-            <Image
-              src={process.env.PUBLIC_URL + "/images/shape.jpg"}
-              alt="Shape example"
-              style={{ paddingRight: 16, maxHeight:"80%"}}
-              fluid
-            ></Image>
+            <Carousel interval={1800} fade={false}>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 carousel-image"
+                  src={process.env.PUBLIC_URL + "/carousel/annotated-orange-cube.png"}
+                  alt="Annotated orange cube"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 carousel-image"
+                  src={process.env.PUBLIC_URL + "/carousel/hypercube-perspective.png"}
+                  alt="Hypercube perspective"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 carousel-image"
+                  src={process.env.PUBLIC_URL + "/carousel/shape-atrium.png"}
+                  alt="Atrium"
+                />
+              </Carousel.Item>
+            </Carousel>
           </div>
         </Row>
       </Fade>
