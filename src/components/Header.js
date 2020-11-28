@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import { SocialIcon } from "react-social-icons";
+import Image from "react-bootstrap/Image";
 
 function Header() {
   const history = useHistory();
@@ -86,12 +87,21 @@ function Header() {
           <Nav className="ml-auto">
             <SocialIcon
               url="https://www.instagram.com/tomglazebrook/"
+              target="_blank"
               style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
             />
             <SocialIcon
               url="https://www.youtube.com/channel/UCKoLZ-akJToEIt2M98pCqAA"
-              style={{ height: 30, width: 30, marginBottom: 4 }}
+              target="_blank"
+              style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
             />
+            <a href="https://discord.gg/jR9pn4EAfV" target="_blank">
+              <Image
+                src={process.env.PUBLIC_URL + "/images/discord-icon.png"}
+                alt="Discord icon"
+                style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
+              ></Image>
+            </a>
           </Nav>
         </Navbar.Collapse>
       </Container>
