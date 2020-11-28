@@ -37,13 +37,13 @@ function Header() {
           }}
         />
         <Navbar.Brand className="nav-title" href={process.env.PUBLIC_URL + "/"}>
-          Meta-Harmony®
+          Meta-Harmony
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
             <NavLink
-              to={process.env.PUBLIC_URL + "/"}
+              to={process.env.PUBLIC_URL + "/about"}
               exact
               className="nav-link"
             >

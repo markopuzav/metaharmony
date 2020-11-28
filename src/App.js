@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import LearningApp from "./components/LearningApp";
+import About from "./components/About";
 import Team from "./components/Team";
 import Supporters from "./components/Supporters";
 import ContactForm from "./components/ContactForm";
@@ -17,7 +18,7 @@ class App extends Component {
 
         <Switch>
           <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
-          <Route path={process.env.PUBLIC_URL + "/about"} component={Home} />
+          <Route path={process.env.PUBLIC_URL + "/about"} component={About} />
           <Route
             path={process.env.PUBLIC_URL + "/metaharmony"}
             component={Home}
@@ -46,7 +47,7 @@ class App extends Component {
             paddingBottom: "2rem",
           }}
         >
-          <i>&copy; 2020 Meta-Harmony Team </i>
+          <i>&copy; 2020 Meta-Harmony® Team </i>
         </footer>
       </Fragment>
     );

@@ -50,28 +50,12 @@ class Team extends Component {
             </p>
           </div>
           <p>
-            I've been collaborating with Tom on Meta-Harmony since the summer of
-            2017. My main job on the team is to understand the mathematical
-            aspects of Meta-Harmony and to investigate ways of understanding and
-            interacting with it.
-          </p>
-          <p>
-            It's been such an exciting project for me and has truly opened my
-            mind and ears to the underlying structure of musical harmony. As a
+          I've been collaborating with Tom on Meta-Harmony since the summer of
+          2017. It has opened my mind and ears to the underlying structure of musical harmony. As a
             drummer I have always had an emotional understanding of harmony but,
             until recently, had found it very hard to access. Working on
             Meta-Harmony has completely changed my perspective. It manages to
             present a wealth of nuanced information in a very accessible format.
-          </p>
-          <p>
-            The more we work with Meta-Harmony the more we seem to be able to
-            mine from it. My favourite moment of the project so far was
-            discovering a special rotation in the shapes of Meta-Harmony which
-            represents 'negative harmony'.
-          </p>
-          <p>
-            I'm excited for you to explore your own journey through
-            Meta-Harmony.
           </p>
         </div>
       </ScreenContainer>
