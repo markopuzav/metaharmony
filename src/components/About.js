@@ -46,23 +46,9 @@ class Home extends Component {
       <Row style={{marginLeft: "10%", marginRight: "10%"}}>
         <h3>How do I begin?</h3>
         <div>
-          <Row style={{paddingTop: 20, paddingBottom: 20}}>
-            <div className="col  align-self-center">
-              <p>
-                To enjoy the riches that Meta-Harmony has to offer, join the discord community.
-              </p>
-            </div>
-            <div className="col" style={{marginLeft: 20}}>
-              <iframe
-                src="https://discord.com/widget?id=719936662263824465&theme=dark"
-                width="350"
-                height="300"
-                allowtransparency="true"
-                frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-              </iframe>
-            </div>
-          </Row>
+          <p>
+            To enjoy the riches that Meta-Harmony has to offer, join the <a href="https://discord.gg/jR9pn4EAfV">discord community</a>.
+          </p>
           <p>
             This is a place for all things Meta-Harmony - a place to learn,
             ask questions and share ideas. Not only will you find videos and diagrams explaining the method,

@@ -63,8 +63,8 @@ class Home extends Component {
 
       <Fade in={this.state.open}>
         <Row style={{marginTop: "-12%"}}>
-          <div className="col">
-          <Carousel interval={3000} fade={false}>
+          <div className="col-md-5">
+          <Carousel interval={5000} fade={false}>
             <Carousel.Item>
               <img
                 className="d-block w-100 carousel-image"
@@ -82,7 +82,7 @@ class Home extends Component {
           </Carousel>
           </div>
           <div className="col align-self-center">
-            <Row style={{  marginLeft: 20}}>
+            <Row style={{ marginLeft: 20}}>
               <h2>
                 Sound
               </h2>
@@ -109,7 +109,7 @@ class Home extends Component {
             </Row>
           </div>
           <div className="col">
-            <Carousel interval={1800} fade={false}>
+            <Carousel interval={5000} fade={false}>
               <Carousel.Item>
                 <img
                   className="d-block w-100 carousel-image"
