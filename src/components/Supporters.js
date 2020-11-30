@@ -41,15 +41,7 @@ class Supporters extends Component {
             and in Europe, including work with the Devon Youth Jazz Orchestra. I
             currently teach saxophone and am the Musical Director for Jazz
             Project and Jambassadors at Exeter College Music Academy, and teach
-            saxophone and improvisation for Plymouth University and South WestI
-            have begun to apply meta-harmony to my music. I am excited and
-            intrigued to explore meta-harmony for improvisation, performance and
-            composition. The deep nature of meta-harmony really appeals and I
-            feel I will be entering a new phase of music making. I am only at
-            the beginning of acquiring this new insight into harmony but I can
-            sense its possibilities as an imaginative, expressive and personal
-            tool. I feel I am en route to deepen my understanding of music
-            harmony and to set it free. Music School.
+            saxophone and improvisation for Plymouth University and South West Music School.
           </p>
           <p>
             I have begun to apply meta-harmony to my music. I am excited and
