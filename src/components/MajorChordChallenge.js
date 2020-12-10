@@ -21,8 +21,13 @@ class MajorChordChallenge extends Component {
         super(props);
         this.state = {
           sequence: [],
+          seqIndexPlayed: null,
         };
       }
+    
+    componentDidMount() {
+        this.midiSounds.setMasterVolume(0.4);
+	}
 
     onNoteClick(chordName) {
         // push to sequence 
@@ -30,7 +35,7 @@ class MajorChordChallenge extends Component {
         newSequence.push(chordName);
         this.setState(state => ({
             sequence: newSequence,
-          }));
+        }));
 
         // playChordNow( instrument, pitches, duration)
         // instrument: piano 4
@@ -54,6 +59,8 @@ class MajorChordChallenge extends Component {
             'green': '#afe790',
             'purple': '#d380dd',
         }[chordColor[chordName]]
+        
+        let currentlyPlayed = seq_index !== null && seq_index === this.state.seqIndexPlayed;
 
         return (
             <button
@@ -65,6 +72,9 @@ class MajorChordChallenge extends Component {
                     borderWidth: 0,
                     borderRadius: 1,
                     marginBottom: 10,
+                    width: currentlyPlayed ? '90%' : null,
+                    marginLeft: currentlyPlayed ? '5%' : null,
+                    height: currentlyPlayed ? '90%' : null,
                 }}
             >
                 <div
@@ -81,15 +91,23 @@ class MajorChordChallenge extends Component {
     }
 
     playSequence() {
-        const time = 700;
-        const interval = 500;
+        const time = 0;
+        const interval = 2000;
 
         this.state.sequence.forEach((chord, index) => {
             const clock = time + interval * index;
             setTimeout(() => {
-                this.midiSounds.playChordNow(INSTRUMENT, PITCHES[chord], 0.7);
+                this.setState(state => ({
+                    seqIndexPlayed: index,
+                  }));
+                this.midiSounds.playChordNow(INSTRUMENT, PITCHES[chord], 2);
             }, clock);
         });
+        setTimeout(() => {
+            this.setState(state => ({
+                seqIndexPlayed: null,
+              }));
+        }, time + interval * this.state.sequence.length);
     }
 
     removeFromSequence(e) {
