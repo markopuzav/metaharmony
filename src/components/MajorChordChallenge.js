@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Image from "react-bootstrap/Image";
 import { Row, Col } from "reactstrap";
 import MIDISounds from "midi-sounds-react";
 
@@ -21,6 +22,7 @@ class MajorChordChallenge extends Component {
         super(props);
         this.state = {
           sequence: [],
+          displayedChord: null,
           seqIndexPlayed: null,
         };
       }
@@ -29,12 +31,13 @@ class MajorChordChallenge extends Component {
         this.midiSounds.setMasterVolume(0.4);
 	}
 
-    onNoteClick(chordName) {
+    onChordClick(chordName) {
         // push to sequence 
         let newSequence = this.state.sequence;
         newSequence.push(chordName);
         this.setState(state => ({
             sequence: newSequence,
+            displayedChord: chordName,
         }));
 
         // playChordNow( instrument, pitches, duration)
@@ -64,7 +67,7 @@ class MajorChordChallenge extends Component {
 
         return (
             <button
-                onClick={onClickOverride !== null ? onClickOverride : this.onNoteClick.bind(this, chordName)}
+                onClick={onClickOverride !== null ? onClickOverride : this.onChordClick.bind(this, chordName)}
                 id={seq_index}
                 className="d3 container"
                 style={{
@@ -99,6 +102,7 @@ class MajorChordChallenge extends Component {
             setTimeout(() => {
                 this.setState(state => ({
                     seqIndexPlayed: index,
+                    displayedChord: chord,
                   }));
                 this.midiSounds.playChordNow(INSTRUMENT, PITCHES[chord], 2);
             }, clock);
@@ -106,6 +110,7 @@ class MajorChordChallenge extends Component {
         setTimeout(() => {
             this.setState(state => ({
                 seqIndexPlayed: null,
+                displayedChord: null,
               }));
         }, time + interval * this.state.sequence.length);
     }
@@ -119,7 +124,8 @@ class MajorChordChallenge extends Component {
             }
         }
         this.setState(state => ({
-            sequence: newSequence
+            sequence: newSequence,  
+            displayedChord: null,
           }));
     }
 
@@ -208,6 +214,18 @@ class MajorChordChallenge extends Component {
                         instruments={[INSTRUMENT]}
                     />
                 </div>
+
+                <Row className="justify-content-md-center">
+                    <Col className="col-md-8">
+                        <Image
+                            src={process.env.PUBLIC_URL + "/images/annotations/" + (this.state.displayedChord === null ? "empty" : this.state.displayedChord) + ".png"}
+                            alt={this.state.displayedChord}
+                            style={{ paddingTop: 30}}
+                            fluid
+                        />
+                    </Col>
+                </Row>
+
                 <h4 style={{marginTop: 30}} className="text-center">
                     <button 
                         onClick={this.playSequence.bind(this)}

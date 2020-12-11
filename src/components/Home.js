@@ -28,7 +28,7 @@ class Home extends Component {
             className="col align-self-center col-md-8 offset-sm-2"
           >
             <h2 className="text-center" style={{marginRight: 100}}>
-              Clarity & Intuition
+              {"Clarity & Intuition"}
             </h2>
             <h2 className="text-center" style={{marginLeft: 100}}>
               with Harmony

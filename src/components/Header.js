@@ -61,11 +61,11 @@ function Header() {
             </NavLink>
             */}
             <NavLink
-              to={process.env.PUBLIC_URL + "/videos"}
+              to={process.env.PUBLIC_URL + "/essentials"}
               exact
               className="nav-link"
             >
-              VIDEOS
+              ESSENTIALS
             </NavLink>
             <NavDropdown alignRight title="PEOPLE" id="collasible-nav-dropdown">
               <NavDropdown.Item onClick={navigateToTeam}>TEAM</NavDropdown.Item>

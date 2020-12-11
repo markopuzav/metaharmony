@@ -7,7 +7,7 @@ import About from "./components/About";
 import Team from "./components/Team";
 import Supporters from "./components/Supporters";
 import ContactForm from "./components/ContactForm";
-import Videos from "./components/Videos";
+import Essentials from "./components/Essentials";
 import "./App.scss";
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
             path={process.env.PUBLIC_URL + "/contact"}
             component={ContactForm}
           />
-          <Route path={process.env.PUBLIC_URL + "/videos"} component={Videos} />
+          <Route path={process.env.PUBLIC_URL + "/essentials"} component={Essentials} />
         </Switch>
 
         <hr style={{ marginTop: 100 }} />
