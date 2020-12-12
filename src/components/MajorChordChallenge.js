@@ -14,6 +14,17 @@ const PITCHES = {
     'B♭': [50, 58, 65],
     'D♭': [49, 56, 65],
 };
+const CHORD_COLOR = {
+    'D': 'green',
+    'E': 'purple',
+    'C': 'orange',
+    'F': 'green',
+    'G': 'purple',
+    'A♭': 'green',
+    'B♭': 'purple',
+    'B': 'green',
+    'D♭': 'purple'
+}
 const INSTRUMENT = 4;
 
 
@@ -21,7 +32,7 @@ class MajorChordChallenge extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          sequence: [],
+          sequence: ['C', 'F', 'G', 'C'],
           displayedChord: null,
           seqIndexPlayed: null,
         };
@@ -34,7 +45,14 @@ class MajorChordChallenge extends Component {
     onChordClick(chordName) {
         // push to sequence 
         let newSequence = this.state.sequence;
-        newSequence.push(chordName);
+        if (CHORD_COLOR[chordName] == 'green') {
+            newSequence[1] = chordName;
+        }
+        else if (CHORD_COLOR[chordName] == 'purple') {
+            newSequence[2] = chordName;
+        }
+
+
         this.setState(state => ({
             sequence: newSequence,
             displayedChord: chordName,
@@ -46,22 +64,11 @@ class MajorChordChallenge extends Component {
     }
 
     renderChord(chordName, onClickOverride=null, seq_index=null) {
-        const chordColor = {
-            'D': 'green',
-            'E': 'purple',
-            'C': 'orange',
-            'F': 'green',
-            'G': 'purple',
-            'A♭': 'green',
-            'B♭': 'purple',
-            'B': 'green',
-            'D♭': 'purple'
-        }
         const hexColor = {
             'orange': '#f4d26c',
             'green': '#afe790',
             'purple': '#d380dd',
-        }[chordColor[chordName]]
+        }[CHORD_COLOR[chordName]]
         
         let currentlyPlayed = seq_index !== null && seq_index === this.state.seqIndexPlayed;
 
@@ -115,44 +122,18 @@ class MajorChordChallenge extends Component {
         }, time + interval * this.state.sequence.length);
     }
 
-    removeFromSequence(e) {
-        let index = parseInt(e.currentTarget.id);
-        let newSequence = [];
-        for (var i = 0; i < this.state.sequence.length; i += 1) {
-            if (i !== index) {
-                newSequence.push(this.state.sequence[i]);
-            }
-        }
-        this.setState(state => ({
-            sequence: newSequence,  
-            displayedChord: null,
-          }));
-    }
-
     renderSequence() {
-        let rows = [];
-        for (var i = 0; i < this.state.sequence.length/7; i += 1) {
-            let row = [];
-            for (var j = 0; j < 7; j += 1) {
-                let ind = 7*i + j;
-                row.push(ind < this.state.sequence.length ? this.state.sequence[ind] : null);
-            }
-            rows.push(row);
-        }
-
-        let renderedRows = rows.map((row, row_index) =>
-            <Row key={row_index.toString()}>
-                {row.map((chord, col_index) => 
-                    <Col style={{padding: 0}} key={col_index.toString()}>
-                        {chord !== null ? this.renderChord(chord, e => this.removeFromSequence(e), 7*row_index + col_index) : null}
-                    </Col>
-                )}
-            </Row>
-        )
         return (
             <div>
-                {this.state.sequence.length > 0 ? <p style={{fontSize: 9}}>(click a note in the sequence to remove)</p> : null}
-                {renderedRows}
+                <Row key={0}>
+                    <Col></Col>
+                    {[0,1,2,3].map(i => 
+                        <Col style={{padding: 0}} key={i}>
+                            {this.renderChord(this.state.sequence[i], () => {}, i)}
+                        </Col>
+                    )}
+                    <Col></Col>
+                </Row>
             </div>
         )
 
@@ -229,7 +210,7 @@ class MajorChordChallenge extends Component {
                 <h4 style={{marginTop: 30}} className="text-center">
                     <button 
                         onClick={this.playSequence.bind(this)}
-                        style={{backgroundColor: 'white', borderRadius: 2, borderWidth: 2}}
+                        style={{backgroundColor: 'white', borderRadius: 2, borderWidth: 2, marginBottom: 20}}
                     >
                         Play your sequence
                     </button>

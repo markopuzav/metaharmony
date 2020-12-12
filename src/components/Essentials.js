@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ScreenContainer from "../components/ScreenContainer";
-import Video from "../components/Video";
-import MajorChordChallenge from "../components/MajorChordChallenge";
+import ScreenContainer from "./ScreenContainer";
+import Video from "./Video";
+import MajorChordChallenge from "./MajorChordChallenge";
 import { ESSENTIALS_1 } from "../constants";
 
 class Videos extends Component {
