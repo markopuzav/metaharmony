@@ -10,6 +10,14 @@ import Image from "react-bootstrap/Image";
 function Header() {
   const history = useHistory();
 
+  const navigateToEssentials1 = useCallback(() => {
+    history.push(process.env.PUBLIC_URL + "/essentials1");
+  }, [history]);
+
+  const navigateToEssentials2 = useCallback(() => {
+    history.push(process.env.PUBLIC_URL + "/essentials2");
+  }, [history]);
+
   const navigateToTeam = useCallback(() => {
     history.push(process.env.PUBLIC_URL + "/team");
   }, [history]);
@@ -60,13 +68,12 @@ function Header() {
               LEARNING
             </NavLink>
             */}
-            <NavLink
-              to={process.env.PUBLIC_URL + "/essentials"}
-              exact
-              className="nav-link"
-            >
-              ESSENTIALS
-            </NavLink>
+ 
+            <NavDropdown alignRight title="ESSENTIALS" id="collasible-nav-dropdown">
+              <NavDropdown.Item onClick={navigateToEssentials1}>1: Major Chords</NavDropdown.Item>
+              <NavDropdown.Item onClick={navigateToEssentials2}>2: Minor Chords</NavDropdown.Item>
+            </NavDropdown>
+  
             <NavDropdown alignRight title="PEOPLE" id="collasible-nav-dropdown">
               <NavDropdown.Item onClick={navigateToTeam}>TEAM</NavDropdown.Item>
               <NavDropdown.Item onClick={navigateToSupporters}>

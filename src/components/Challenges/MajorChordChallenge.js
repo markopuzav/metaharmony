@@ -45,10 +45,10 @@ class MajorChordChallenge extends Component {
     onChordClick(chordName) {
         // push to sequence 
         let newSequence = this.state.sequence;
-        if (CHORD_COLOR[chordName] == 'green') {
+        if (CHORD_COLOR[chordName] === 'green') {
             newSequence[1] = chordName;
         }
-        else if (CHORD_COLOR[chordName] == 'purple') {
+        else if (CHORD_COLOR[chordName] === 'purple') {
             newSequence[2] = chordName;
         }
 

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
-import Carousel from "react-bootstrap/Carousel";
 import { Row } from "reactstrap";
-import Fade from "react-bootstrap/Fade";
 import ScreenContainer from "../components/ScreenContainer";
 
 class Home extends Component {

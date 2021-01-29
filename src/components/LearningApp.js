@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import Fade from "react-bootstrap/Fade";
-import SkillTree from "./SkillTree";
+// import SkillTree from "./SkillTree";
 
 class LearningApp extends Component {
   state = {
