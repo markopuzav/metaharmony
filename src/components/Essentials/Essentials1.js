@@ -8,7 +8,7 @@ import MajorChordChallenge from "../Challenges/MajorChordChallenge";
 import { ESSENTIALS_1 } from "../../constants";
 
 
-class Videos extends Component {
+class Essentials1 extends Component {
   render() {
     return (
       <ScreenContainer>
@@ -40,4 +40,4 @@ class Videos extends Component {
   }
 }
 
-export default Videos;
+export default Essentials1;
