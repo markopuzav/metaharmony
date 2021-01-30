@@ -8,14 +8,12 @@ export class Chord {
 const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())));
 
 const voiced_chord = function(chord, voicing) {
-    const res = new Chord(Array.from(chord.notes).map((note, i) => note + 12*(voicing[i] - 1)));
-    return res;
+    return new Chord(Array.from(chord.notes).map((note, i) => note + 12*(voicing[i] - 1)));
 }
 
 const progression_cost = function(chord1, chord2, p=2) {
     // Calculates the cost of chord2 following chord1 (sum of p-th powers)
-    const cost = chord1.notes.map((note, i) => Math.pow(Math.abs(note - chord2.notes[i]), p)).reduce((a, b) => a + b, 0);
-    return cost; 
+    return chord1.notes.map((note, i) => Math.pow(Math.abs(note - chord2.notes[i]), p)).reduce((a, b) => a + b, 0);
 }
 
 export const optimize_voicing = function(chords, v, t_1=3, t_m=5) {
