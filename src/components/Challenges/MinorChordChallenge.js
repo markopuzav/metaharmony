@@ -242,7 +242,7 @@ class MinorChordChallenge extends Component {
                     <Col style={{padding: 0}}></Col>
                 </Row>
                 {/* Hide from page */}
-                <div style={{position: 'absolute', left: -1000}}>
+                <div>{/* <div style={{position: 'absolute', left: -1000}}> */}
                     <MIDISounds
                         ref={ref => (this.midiSounds = ref)}
                         appElementName="root"
