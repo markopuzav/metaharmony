@@ -93,7 +93,7 @@ function Header() {
 
           <Nav className="ml-auto">
             <SocialIcon
-              url="https://www.instagram.com/tomglazebrook/"
+              url="https://www.instagram.com/meta.harmony/"
               target="_blank"
               style={{ height: 30, width: 30, marginRight: 6, marginBottom: 4 }}
             />
