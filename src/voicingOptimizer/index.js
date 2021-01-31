@@ -7,7 +7,7 @@ export class Chord {
 // Cartesian product
 const cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat())));
 
-const voiced_chord = function(chord, voicing) {
+export const voiced_chord = function(chord, voicing) {
     return new Chord(Array.from(chord.notes).map((note, i) => note + 12*(voicing[i] - 1)));
 }
 
@@ -16,7 +16,7 @@ const progression_cost = function(chord1, chord2, p=2) {
     return chord1.notes.map((note, i) => Math.pow(Math.abs(note - chord2.notes[i]), p)).reduce((a, b) => a + b, 0);
 }
 
-export const optimize_voicing = function(chords, v, t_1=3, t_m=5) {
+export const optimize_voicing = function(chords, v, t_1=4, t_m=7) {
     // Returns the optimal cost and optimal voicing for an array of chords
     //    v1 = fixed voicing for the first chord ( the result being chord.notes[i] + 12*(v[i] - 1) )
     //    t_1, t_m lower and upper boundaries for the components of v
@@ -31,7 +31,7 @@ export const optimize_voicing = function(chords, v, t_1=3, t_m=5) {
 
     const recurse_find_optimal = function(cost_so_far=0, voicing_so_far=[v], chord_index=0) {
         // termination conditions
-        if (chord_index === n - 1) { // voiced all chords
+        if (chord_index === chords.length - 1) { // voiced all chords
             if (cost_so_far < optimal_cost) {
                 optimal_cost = cost_so_far;
                 optimal_voicing = voicing_so_far;
@@ -56,5 +56,6 @@ export const optimize_voicing = function(chords, v, t_1=3, t_m=5) {
     }
 
     recurse_find_optimal();
+    console.log('optimal voicing', optimal_voicing);
     return [optimal_cost, optimal_voicing];
 }

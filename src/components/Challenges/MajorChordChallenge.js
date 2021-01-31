@@ -1,32 +1,10 @@
 import React, { Component } from "react";
 import Image from "react-bootstrap/Image";
 import { Row, Col } from "reactstrap";
+import { HEX_COLOR, CHORD_COLOR, PITCHES } from "../../constants";
 import MIDISounds from "midi-sounds-react";
 
-const PITCHES = {
-    'C': [48, 55, 64],
-    'D': [50, 57, 66],
-    'F': [48, 57, 65],
-    'A♭': [48, 56, 63],
-    'B': [47, 54, 63],
-    'E': [47, 56, 64],
-    'G': [47, 55, 62],
-    'B♭': [50, 58, 65],
-    'D♭': [49, 56, 65],
-};
-const CHORD_COLOR = {
-    'D': 'green',
-    'E': 'purple',
-    'C': 'orange',
-    'F': 'green',
-    'G': 'purple',
-    'A♭': 'green',
-    'B♭': 'purple',
-    'B': 'green',
-    'D♭': 'purple'
-}
 const INSTRUMENT = 4;
-
 
 class MajorChordChallenge extends Component {
     constructor(props) {
@@ -64,11 +42,7 @@ class MajorChordChallenge extends Component {
     }
 
     renderChord(chordName, onClickOverride=null, seq_index=null) {
-        const hexColor = {
-            'orange': '#f4d26c',
-            'green': '#afe790',
-            'purple': '#d380dd',
-        }[CHORD_COLOR[chordName]]
+        const hexColor = HEX_COLOR[CHORD_COLOR[chordName]]
         
         let currentlyPlayed = seq_index !== null && seq_index === this.state.seqIndexPlayed;
 

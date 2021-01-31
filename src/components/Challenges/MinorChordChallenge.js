@@ -1,42 +1,22 @@
 import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
 import { Row, Col } from "reactstrap";
 import MIDISounds from "midi-sounds-react";
 import DiagonalTriangleButton from "./DiagonalTriangleButton";
-import { HEX_COLOR, CHORD_COLOR } from "../../constants";
-import { Chord, optimize_voicing } from "../../voicingOptimizer";
-
-const PITCHES = {
-    'C': [48, 55, 64],
-    'D': [50, 57, 66],
-    'F': [48, 57, 65],
-    'A♭': [48, 56, 63],
-    'B': [47, 54, 63],
-    'E': [47, 56, 64],
-    'G': [47, 55, 62],
-    'B♭': [50, 58, 65],
-    'D♭': [49, 56, 65],
-    // these are provisional
-    'Bm': [47, 54, 62],
-    'Dm': [50, 57, 65],
-    'Fm': [48, 56, 65],
-    'A♭m': [47, 56, 63],
-    'D♭m': [49, 56, 64],
-    'Em':  [47, 55, 64],
-    'Gm': [46, 55, 62],
-    'B♭m': [49, 58, 65],
-};
+import { HEX_COLOR, CHORD_COLOR, PITCHES, BASE_PITCHES } from "../../constants";
+import { Chord, optimize_voicing, voiced_chord } from "../../voicingOptimizer";
+import Toggle from 'react-toggle'
 
 const INSTRUMENT = 4;
-
+const INITIAL_C_VOICING = [5, 6, 5];
 
 class MinorChordChallenge extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          sequence: ['C', 'F', 'G', 'C'],
+          sequence: ['C', 'Fm', 'A♭', 'D♭', 'Em', 'C'],
           displayedChord: null,
           seqIndexPlayed: null,
+          autovoice: true,
         };
       }
     
@@ -54,6 +34,7 @@ class MinorChordChallenge extends Component {
             this.setState(state => ({
                 sequence: newSequence,
                 displayedChord: chordName,
+                autovoice: this.state.autovoice,
             }));
         } 
         if (CHORD_COLOR[chordName] === 'purple' && purples.length < 2) {
@@ -61,6 +42,7 @@ class MinorChordChallenge extends Component {
             this.setState(state => ({
                 sequence: newSequence,
                 displayedChord: chordName,
+                autovoice: this.state.autovoice,
             }));
         } 
 
@@ -124,8 +106,25 @@ class MinorChordChallenge extends Component {
     }
 
     playSequence() {
+        let computedPitches = {};
+        console.log(this.state.sequence);
+        if (this.state.autovoice) {
+            let [optimal_cost, optimal_voicings] = optimize_voicing(
+                this.state.sequence.map(chordName => new Chord(BASE_PITCHES[chordName])), 
+                INITIAL_C_VOICING
+            );
+            computedPitches =
+                this.state.sequence.map(
+                    (chordName, i) => voiced_chord(new Chord(BASE_PITCHES[chordName]), optimal_voicings[i]).notes
+                )
+            console.log(computedPitches);
+        } else {
+            computedPitches =  this.state.sequence.map((chord, i) =>  PITCHES[chord]);
+        }
+
+
         let time = 0;
-        const interval = 2000;
+        const interval = 2600;
         let greens = this.state.sequence.filter(chord => CHORD_COLOR[chord] === 'green');
         let purples = this.state.sequence.filter(chord => CHORD_COLOR[chord] === 'purple');
 
@@ -139,23 +138,34 @@ class MinorChordChallenge extends Component {
                 this.setState(state => ({
                     seqIndexPlayed: index,
                     displayedChord: chord,
+                    autovoice: this.state.autovoice,
                   }));
-                this.midiSounds.playChordNow(INSTRUMENT, PITCHES[chord], 2);
+                this.midiSounds.playChordNow(INSTRUMENT, computedPitches[index], 2.5);
             }, clock);
         });
         setTimeout(() => {
             this.setState(state => ({
                 seqIndexPlayed: null,
                 displayedChord: null,
+                autovoice: this.state.autovoice,
               }));
         }, time);
     }
 
     deleteFromSequence(index) {
         this.setState(state => ({
-            sequence: this.state.sequence.filter((chord, i) => i != index),
+            sequence: this.state.sequence.filter((chord, i) => i !== index),
             displayedChord: this.state.displayedChord,
-        }))
+            autovoice: this.state.autovoice,
+        }));
+    }
+
+    toggleAutovoice() {
+        this.setState(state => ({
+            sequence: this.state.sequence,
+            displayedChord: this.state.displayedChord,
+            autovoice: !this.state.autovoice,
+        }));
     }
 
     renderSequence() {
@@ -247,9 +257,13 @@ class MinorChordChallenge extends Component {
                     >
                         Play your sequence
                     </button>
-                    <div className="text-center"style={{fontSize: 9, color: "#999999"}}>click any green/purple note to delete</div>
                 </h4>
+                <div className="text-center" style={{fontSize: 10, color: "#999999"}}>click any green/purple note to delete</div>
                 {this.renderSequence()}
+                <label>
+                    <Toggle id='autovoice' defaultChecked={this.state.autovoice} onChange={() => this.toggleAutovoice()} />
+                    <div className="text-center" style={{marginLeft: 5, float: "right"}}>Auto-voicing</div>
+                </label>
             </div>
     )}
 }
