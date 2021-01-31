@@ -4,11 +4,7 @@ import React, { Component } from "react";
 import ScreenContainer from "../ScreenContainer";
 import Video from "../Video";
 import { ESSENTIALS_2 } from "../../constants";
-import { Chord, optimize_voicing } from "../../voicingOptimizer";
-
-const test = function() {
-  return optimize_voicing([new Chord([0, 4, 7]), new Chord([2, 6, 9]), new Chord([2, 5, 10]), new Chord([0, 4, 7])], [3, 4, 3], 2, 4);
-}
+import MinorChordChallenge from "../Challenges/MinorChordChallenge";
 
 class Essentials2 extends Component {
   render() {
@@ -32,10 +28,8 @@ class Essentials2 extends Component {
             </NavLink>
           </Nav>
 
-        {
-          // console.log(test())
-        }
-
+        <h3 className="text-center" style={{marginTop: 60, marginBottom: 30}}>Try it yourself</h3>
+        <MinorChordChallenge/>
         </div>
       </ScreenContainer>
     );
