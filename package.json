@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "d3-array": "^2.4.0",
-    "d3-scale": "^3.2.1",
+    "d3-scale": "^4.0.2",
     "d3-selection": "^1.4.1",
     "midi-sounds-react": "^1.2.54",
     "node-sass": "^4.13.1",
